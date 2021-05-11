@@ -94,6 +94,50 @@ namespace StacksQueues
             this.data = data;
         }
     }
+    public class AbilityToEnQueueInQueue
+    {
+        Node head = null;
+
+        /// <summary>
+        /// Inserting elements in queue -----> FIFO order.
+        /// </summary>
+        /// <param name="data"></param>
+        internal void Enqueue(int data)
+        {
+            Node node = new Node(data);
+            if (head == null)
+                head = node;
+            else
+            {
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
+            }
+            Console.WriteLine("{0} inserted into queue. ", node.data);
+        }
+
+        /// <summary>
+        /// Display queue elements.
+        /// </summary>
+        internal void Display()
+        {
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("Queue is empty!!!");
+                return;
+            }
+            while (temp != null)
+            {
+                Console.Write("Queue elements are : " + temp.data + " ");
+                temp = temp.next;
+            }
+        }
+
+    }
     class Program
     {
         static void Main(string[] args)
@@ -101,6 +145,7 @@ namespace StacksQueues
             Console.WriteLine("===============Welcome To Stack And Queue Program Using Linked List=====================");
 
             Stack stackOBJ = new Stack();
+            AbilityToEnQueueInQueue queueOBJ = new AbilityToEnQueueInQueue();
 
             //Pushing(adding) elements one by one.
             //Top elements will be 50.
@@ -116,7 +161,19 @@ namespace StacksQueues
             stackOBJ.Pop();
             stackOBJ.IsEmpty();
             stackOBJ.DisplayStackElements();
+
+            //Queue operations
+            queueOBJ.Enqueue(44);
+            queueOBJ.Enqueue(440);
+            queueOBJ.Enqueue(344);
+            queueOBJ.Enqueue(333);
+            queueOBJ.Enqueue(12);
+            queueOBJ.Display();
+
             Console.ReadLine();
+
+
+
 
         }
     }
