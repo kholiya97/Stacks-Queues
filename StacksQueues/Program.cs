@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace StacksQueues
-{/// <summary>
- /// Stack class 
- /// </summary>
+{
+    /// <summary>
+    /// Stack class 
+    /// </summary>
     public class Stack
     {
         private Node top;
@@ -84,6 +85,7 @@ namespace StacksQueues
             }
             //this.top=null;
         }
+
     }
     class Node
     {
@@ -94,6 +96,7 @@ namespace StacksQueues
             this.data = data;
         }
     }
+
     public class AbilityToEnQueueInQueue
     {
         Node head = null;
@@ -120,6 +123,19 @@ namespace StacksQueues
         }
 
         /// <summary>
+        /// Dequeue elements from first.
+        /// </summary>
+        /// <returns></returns>
+        internal Node Dequeue()
+        {
+            if (this.head == null)
+                return null;
+            this.head = this.head.next;
+            return this.head;
+
+        }
+
+        /// <summary>
         /// Display queue elements.
         /// </summary>
         internal void Display()
@@ -132,7 +148,7 @@ namespace StacksQueues
             }
             while (temp != null)
             {
-                Console.Write("Queue elements are : " + temp.data + " ");
+                Console.Write("Queue elements are : " + temp.data + " \n");
                 temp = temp.next;
             }
         }
@@ -170,8 +186,9 @@ namespace StacksQueues
             queueOBJ.Enqueue(12);
             queueOBJ.Display();
 
+            queueOBJ.Dequeue();
+            queueOBJ.Display();
             Console.ReadLine();
-
 
 
 
