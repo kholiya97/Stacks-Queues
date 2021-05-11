@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace StacksQueues
-{
-    /// <summary>
-  /// Stack class 
-  /// </summary>
+{/// <summary>
+ /// Stack class 
+ /// </summary>
     public class Stack
     {
         private Node top;
@@ -43,6 +42,47 @@ namespace StacksQueues
                 Console.Write(temp.data + " ");
                 temp = temp.next;
             }
+            Console.WriteLine("Stack Is Empty.");
+        }
+
+        /// <summary>
+        /// Peek method will return top element from stack.
+        /// </summary>
+        internal void Peek()
+        {
+            if (this.top == null)
+            {
+                Console.WriteLine("Stack is empty!!!");
+                return;
+            }
+            Console.WriteLine("{0} is a TOP elements of the stack ", this.top.data);
+        }
+
+        /// <summary>
+        /// Pop method will delete top element from thre stack.
+        /// </summary>
+        internal void Pop()
+        {
+            if (this.top == null)
+            {
+                Console.WriteLine("Stack is empty...You can not delete.(Underflow condition)");
+                return;
+            }
+            Console.WriteLine("Elements popped is {0} ", this.top.data);
+            this.top = this.top.next;
+        }
+
+        /// <summary>
+        /// Peek and pop till stack is empty.
+        /// </summary>
+        internal void IsEmpty()
+        {
+            while (this.top != null)
+            {
+                Peek();
+                Pop();
+            }
+            //this.top=null;
         }
     }
     class Node
@@ -69,6 +109,12 @@ namespace StacksQueues
             stackOBJ.Push(56);
 
             //Displaying stack.
+            stackOBJ.DisplayStackElements();
+
+            Console.WriteLine();
+            stackOBJ.Peek();
+            stackOBJ.Pop();
+            stackOBJ.IsEmpty();
             stackOBJ.DisplayStackElements();
             Console.ReadLine();
 
